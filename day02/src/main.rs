@@ -19,20 +19,18 @@ use std::collections::HashMap;
 use std::fs;
 use std::io::{self, prelude::*};
 
-const WIN_POINTS: u8 = 6;
-const DRAW_POINTS: u8 = 3;
-const LOSS_POINTS: u8 = 0;
+const WIN_POINTS: u32 = 6;
+const DRAW_POINTS: u32 = 3;
+const LOSS_POINTS: u32 = 0;
 
-fn result(them: &str, us: &str) -> u8 {
+fn result(them: &str, us: &str) -> u32 {
     match (them, us) {
         // Win
         ("A", "Y") | ("B", "Z") | ("C", "X") => WIN_POINTS,
         // Draw
         ("A", "X") | ("B", "Y") | ("C", "Z") => DRAW_POINTS,
         // Loss
-        ("A", "Z") | ("B", "X") | ("C", "Y") => LOSS_POINTS,
-        // Fallthrough (assume loss?)
-        _ => 0,
+        ("A", "Z") | ("B", "X") | ("C", "Y") | _ => LOSS_POINTS,
     }
 }
 
@@ -79,13 +77,13 @@ fn main() {
         for i in ["X", "Y", "Z"] {
             let res = result(them, i);
             if res == *p2_desired_result {
-                problem_two_points += (moves_to_points[i] as u32) + (res as u32);
+                problem_two_points += moves_to_points[i] + res;
                 break;
             }
         }
 
         let score = res + moves_to_points[us];
-        problem_one_points += score as u32;
+        problem_one_points += score;
     }
     println!("Problem 1: {}", problem_one_points);
     println!("Problem 2: {}", problem_two_points);
