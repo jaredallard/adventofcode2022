@@ -1,0 +1,36 @@
+[package]
+name = "adventofcode"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "day1a"
+path = "day01a/main.rs"
+
+[[bin]]
+name = "day1b"
+path = "day01b/src/main.rs"
+
+[[bin]]
+name = "day2"
+path = "day02/src/main.rs"
+
+[[bin]]
+name = "day4"
+path = "day04/src/main.rs"
+
+[[bin]]
+name = "day5"
+path = "day05/src/main.rs"
+
+[[bin]]
+name = "day6"
+path = "day06/src/main.rs"
+
+[[bin]]
+name = "day8"
+path = "day08/src/main.rs"
+
+[[bin]]
+name = "day09"
+path = "day09/src/main.rs"
