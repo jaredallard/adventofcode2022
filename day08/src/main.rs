@@ -74,32 +74,29 @@ fn main() {
         grid.push(row);
     }
 
-    let mut processed_trees = 0;
     let mut highest_score: usize = 0;
 
     for y in 0..grid.len() {
         for x in 0..grid[y].len() {
             // println!("Tree at ({}, {})", x, y);
-            processed_trees += 1;
-
             let key = format!("{},{}", x, y);
             let (is_visible, score) = get_tree_info(&grid, x, y);
             if is_visible {
                 visible.insert(key, true);
-                print!("X")
+                //print!("X")
             } else {
-                print!(" ")
+                //print!(" ")
             }
 
             if score > highest_score {
                 highest_score = score;
             }
         }
-        println!();
+        //println!();
     }
 
-    println!("Processed {} trees", processed_trees);
-    println!("");
+    //println!("Processed {} trees", processed_trees);
+    //println!("");
     println!("Problem 1: {}", visible.len());
     println!("Problem 2: {}", highest_score);
 }
